@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * Card.java
  *
@@ -31,7 +33,7 @@ class Card {
    * @param cardPointValue an <code>int</code> value
    *                  containing the point value of the card
    */
-  public Card(String cardRank, String cardSuit, int cardPointValue) {
+  Card(String cardRank, String cardSuit, int cardPointValue) {
     this.rank = cardRank;
     this.suit = cardSuit;
     this.pointValue = cardPointValue;
@@ -42,7 +44,7 @@ class Card {
    * Accesses this <code>Card's</code> suit.
    * @return this <code>Card's</code> suit.
    */
-  public String suit() {
+  String suit() {
     return this.suit;
   }
 
@@ -50,7 +52,7 @@ class Card {
    * Accesses this <code>Card's</code> rank.
    * @return this <code>Card's</code> rank.
    */
-  public String rank() {
+  String rank() {
     return this.rank;
   }
 
@@ -58,7 +60,7 @@ class Card {
    * Accesses this <code>Card's</code> point value.
    * @return this <code>Card's</code> point value.
    */
-  public int pointValue() {
+  int pointValue() {
     return this.pointValue;
   }
 
@@ -68,11 +70,11 @@ class Card {
    *              are equal to those of the argument;
    *         false otherwise.
    */
-  public boolean matches(Card otherCard) {
-    if (this.rank == otherCard.rank() &&
-            this.suit == otherCard.suit() &&
-            this.pointValue == otherCard.pointValue) return true;
-    return false;
+  boolean matches(Card otherCard) {
+//    return Objects.equals(this.rank, otherCard.rank()) &&
+//            Objects.equals(this.suit, otherCard.suit()) &&
+//            this.pointValue == otherCard.pointValue; waste with toString method
+    return Objects.equals(this.toString(), otherCard.toString());
   }
 
   /**
